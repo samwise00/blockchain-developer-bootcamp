@@ -11,3 +11,11 @@ GAS_REPORT=true npx hardhat test
 npx hardhat node
 npx hardhat run scripts/deploy.js
 ```
+
+# Notes
+
+Open hardhat console
+``` npx hardhat console --network localhost ```
+
+Get balance in ETH (not WEI or GWEI)
+``` ethers.utils.formatEther(balance.toString()) ```
