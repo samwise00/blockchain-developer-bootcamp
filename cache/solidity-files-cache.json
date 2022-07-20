@@ -2,8 +2,8 @@
   "_format": "hh-sol-cache-2",
   "files": {
     "/Users/sam/Documents/projects/blockchain-developer-bootcamp/contracts/Token.sol": {
-      "lastModificationDate": 1658294799433,
-      "contentHash": "b5621d47cd486fd888e2f0261ffb3968",
+      "lastModificationDate": 1658340031321,
+      "contentHash": "17129cb59521e2fb9560f4b825c9e6f2",
       "sourceName": "contracts/Token.sol",
       "solcConfig": {
         "version": "0.8.9",
