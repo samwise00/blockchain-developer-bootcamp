@@ -2,8 +2,8 @@
   "_format": "hh-sol-cache-2",
   "files": {
     "/Users/sam/Documents/projects/blockchain-developer-bootcamp/contracts/Token.sol": {
-      "lastModificationDate": 1658340031321,
-      "contentHash": "17129cb59521e2fb9560f4b825c9e6f2",
+      "lastModificationDate": 1658356047035,
+      "contentHash": "6a9e657eff1647be68e3d55da17965a2",
       "sourceName": "contracts/Token.sol",
       "solcConfig": {
         "version": "0.8.9",
@@ -74,8 +74,8 @@
       ]
     },
     "/Users/sam/Documents/projects/blockchain-developer-bootcamp/contracts/Exchange.sol": {
-      "lastModificationDate": 1658352109710,
-      "contentHash": "6d695f68e81232b77a53113e6af77f79",
+      "lastModificationDate": 1658357054550,
+      "contentHash": "bec9f45c5dbe9b5d05df1d611d00cfa1",
       "sourceName": "contracts/Exchange.sol",
       "solcConfig": {
         "version": "0.8.9",
@@ -101,7 +101,8 @@
         }
       },
       "imports": [
-        "hardhat/console.sol"
+        "hardhat/console.sol",
+        "./Token.sol"
       ],
       "versionPragmas": [
         "^0.8.0"
