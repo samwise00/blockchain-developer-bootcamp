@@ -74,8 +74,8 @@
       ]
     },
     "/Users/sam/Documents/projects/blockchain-developer-bootcamp/contracts/Exchange.sol": {
-      "lastModificationDate": 1658431862163,
-      "contentHash": "b97b6f567ba3f7023bee02152e96915a",
+      "lastModificationDate": 1658443541906,
+      "contentHash": "b8bc592ccc7135c11af576f0d2ca3295",
       "sourceName": "contracts/Exchange.sol",
       "solcConfig": {
         "version": "0.8.9",
