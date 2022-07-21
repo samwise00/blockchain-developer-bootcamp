@@ -36,10 +36,10 @@ contract Token {
         balanceOf[msg.sender] = totalSupply;
     }
 
-    function transfer(address _to, uint256 _value) 
-        public 
-        returns (bool success) 
-    {
+    function transfer(
+        address _to, 
+        uint256 _value
+    ) public returns (bool success) {
         // Require that sender has enough tokens to spend
         require(balanceOf[msg.sender] >= _value);
 
@@ -48,9 +48,11 @@ contract Token {
         return true;
     }
 
-    function _transfer(address _from, address _to, uint256 _value) 
-        internal
-    {
+    function _transfer(
+        address _from, 
+        address _to, 
+        uint256 _value
+    ) internal {
         require(_to != address(0));
         // Deduct tokens from spender
         balanceOf[_from] = balanceOf[_from] - _value;
@@ -61,10 +63,10 @@ contract Token {
         emit Transfer(_from, _to, _value);
     }
 
-    function approve(address _spender, uint256 _value) 
-        public 
-        returns(bool success) 
-    {
+    function approve(
+        address _spender, 
+        uint256 _value
+    ) public returns(bool success) {
         require(_spender != address(0));
 
         allowance[msg.sender][_spender] = _value;
@@ -72,10 +74,11 @@ contract Token {
         return true;
     }
 
-    function transferFrom(address _from, address _to, uint256 _value) 
-        public
-        returns (bool success)
-    {
+    function transferFrom(
+        address _from, 
+        address _to, 
+        uint256 _value
+    ) public returns (bool success) {
         // check approval
         require(_value <= balanceOf[_from], 'insufficient balance');
         require(_value <= allowance[_from][msg.sender], 'insufficient allowance');
