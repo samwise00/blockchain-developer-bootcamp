@@ -7,9 +7,16 @@ import "./Token.sol";
 contract Exchange {
     address public feeAccount;
     uint256 public feePercent;
-    mapping(address => mapping(address => uint256)) public tokens;
+    mapping(address => mapping(address => uint256)) public tokens; // for each token, tracks holder addresses and their balances
 
     event Deposit(
+        address token, 
+        address user, 
+        uint256 amount, 
+        uint256 balance
+    );
+
+    event Withdraw(
         address token, 
         address user, 
         uint256 amount, 
@@ -31,6 +38,17 @@ contract Exchange {
         tokens[_token][msg.sender] = tokens[_token][msg.sender] + _amount;
         // emit an event
         emit Deposit(_token, msg.sender, _amount, tokens[_token][msg.sender]);
+    }
+
+    function withdrawToken(address _token, uint256 _amount) 
+        public 
+    {
+        // Update user balance
+        require(Token(_token).transfer(msg.sender, _amount));
+        // Transfer tokens to user
+        tokens[_token][msg.sender] = tokens[_token][msg.sender] - _amount;
+        // Emit an event
+        emit Withdraw(_token, msg.sender, _amount, tokens[_token][msg.sender]);
     }
 
     // Check Balances
