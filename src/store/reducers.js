@@ -38,8 +38,8 @@ export const tokens = (state = DEFAULT_TOKENS_STATE, action) => {
       return {
         ...state,
         loaded: true,
-        contracts: [...state.contracts, action.token], // takes the existing contracts object and adds the token
-        symbols: [...state.symbols, action.symbol]
+        contracts: [action.token], // takes the existing contracts object and adds the token
+        symbols: [action.symbol]
       }
     case 'TOKEN_2_LOADED':
       return {

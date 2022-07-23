@@ -7,7 +7,7 @@ import {
     loadAccount
   } from '../store/interactions'
 
-  import config from '../config.json'
+import config from '../config.json'
 
 const Navbar = () => {
     const dispatch = useDispatch()
@@ -41,10 +41,10 @@ const Navbar = () => {
             <img src={eth} alt="ETH Logo" className="Eth Logo" />
             {chainId && (
                 <select name="networks" id="networks" value={config[chainId] ? `0x${chainId.toString(16)}` : '0'} onChange={networkHandler}>
-                <option value="0" disabled>Select Network</option>
-                <option value="0x7A69">Localhost</option>
-                <option value="0x4">Rinkeby Test Network</option>
-            </select>
+                    <option value="0" disabled>Select Network</option>
+                    <option value="0x7A69">Localhost</option>
+                    <option value="0x4">Rinkeby Test Network</option>
+                </select>
             )}
         </div>
   
