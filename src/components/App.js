@@ -11,9 +11,10 @@ import {
   subscribeToEvents
 } from '../store/interactions';
 
-import Navbar from './Navbar';
-import Markets from './Markets';
-import Balance from './Balance';
+import Navbar from './Navbar'
+import Markets from './Markets'
+import Balance from './Balance'
+import Order from './Order'
 
 function App() {
   const dispatch = useDispatch()
@@ -22,7 +23,7 @@ function App() {
     // Connect Ethers to blockchain
     const provider = loadProvider(dispatch)
 
-    // Fetch current network's chainId(e.g. hardhat: 31337, kovan: 42)
+    // Fetch current network's chainId (e.g. hardhat: 31337, kovan: 42)
     const chainId = await loadNetwork(provider, dispatch)
 
     // Reload page when network changes
@@ -30,23 +31,21 @@ function App() {
       window.location.reload()
     })
 
-    // Fetch current account & balance from Metamask
-    window.ethereum.on('accountsChanged', async () => {
-      await loadAccount(provider, dispatch)
+    // Fetch current account & balance from Metamask when changed
+    window.ethereum.on('accountsChanged', () => {
+      loadAccount(provider, dispatch)
     })
-    
+
     // Load token smart contracts
     const DApp = config[chainId].DApp
     const mETH = config[chainId].mETH
-
-    // Load token Smart Contracts
     await loadTokens(provider, [DApp.address, mETH.address], dispatch)
 
-    // Load exchange Smart Contract
+    // Load exchange smart contract
     const exchangeConfig = config[chainId].exchange
     const exchange = await loadExchange(provider, exchangeConfig.address, dispatch)
 
-    // listen to events
+    // Listen to events
     subscribeToEvents(exchange, dispatch)
   }
 
@@ -57,19 +56,16 @@ function App() {
   return (
     <div>
 
-      {/* Navbar */}
       <Navbar />
 
       <main className='exchange grid'>
         <section className='exchange__section--left grid'>
 
-          {/* Markets */}
           <Markets />
 
-          {/* Balance */}
           <Balance />
 
-          {/* Order */}
+          <Order />
 
         </section>
         <section className='exchange__section--right grid'>
