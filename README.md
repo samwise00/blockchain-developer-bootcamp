@@ -15,6 +15,12 @@ npx hardhat run scripts/deploy.js
 # Notes
 # Solidity
 
+Start local blockchain
+``` npx hardhat node ```
+
+Run harthat script
+``` npx hardhat run --network localhost scripts/1_deploy.js ```
+
 Open hardhat console
 ``` npx hardhat console --network localhost ```
 
