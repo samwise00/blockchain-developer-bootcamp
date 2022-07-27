@@ -65,8 +65,6 @@ const Balance = () => {
 
     const withdrawHandler = (e, token) => {
         e.preventDefault()
-
-        console.log('withdrawing tokens')
     
         if (token.address === tokens[0].address) {
           transferTokens(provider, exchange, 'Withdraw', token, token1TransferAmount, dispatch)
@@ -81,7 +79,7 @@ const Balance = () => {
       if(exchange && tokens[0] && tokens[1] && account) {
         loadBalances(exchange, tokens, account, dispatch)
       }
-    }, [exchange, tokens, account, transferInProgress])
+    }, [exchange, tokens, account, transferInProgress, dispatch])
 
     return (
       <div className='component exchange__transfers'>

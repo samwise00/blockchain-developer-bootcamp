@@ -20,6 +20,7 @@ import PriceChart from './PriceChart'
 import MyTransactions from './Transactions'
 import Trades from './Trades'
 import OrderBook from './OrderBook'
+import Alert from './Alert'
 
 function App() {
   const dispatch = useDispatch()
@@ -94,6 +95,7 @@ function App() {
       </main>
 
       {/* Alert */}
+      <Alert />
 
     </div>
   );

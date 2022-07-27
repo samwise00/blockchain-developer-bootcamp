@@ -23,7 +23,6 @@ const Navbar = () => {
     }
 
     const networkHandler = async (event) => {
-        console.log(event.target.value)
         await window.ethereum.request({
             method: 'wallet_switchEthereumChain',
             params: [{ chainId: event.target.value }]
@@ -53,6 +52,7 @@ const Navbar = () => {
             <p><small>My Balance</small>{Number(balance).toFixed(4)}</p> :
             <p><small>My Balance</small>0 ETH</p>}
             {account ? (
+                // eslint-disable-next-line
                 <a 
                     href={config[chainId] ? `${config[chainId].explorerURL}/address/${account}` : `#`}
                     target='_blank'

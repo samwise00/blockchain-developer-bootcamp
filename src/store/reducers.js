@@ -68,6 +68,7 @@ export const tokens = (state = DEFAULT_TOKENS_STATE, action) => {
 
 const DEFAULT_EXCHANGE_STATE = {
   loaded: false,
+  isPending: false,
   contract: {},
   transaction: {
     isSuccessful: false
@@ -220,7 +221,7 @@ export const exchange = (state = DEFAULT_EXCHANGE_STATE, action) => {
     case 'TRANSFER_REQUEST':
       return {
         ...state,
-        trasnsaction: {
+        transaction: {
           transactionType: 'Transfer',
           isPending: true,
           isSuccessful: false

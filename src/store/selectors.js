@@ -6,12 +6,13 @@ import moment from 'moment'
 const GREEN = '#25CE8F'
 const RED = '#F45353'
 
+const account = state => get(state, 'provider.account')
 const tokens = state => get(state, 'tokens.contracts')
+const events = state => get(state, 'exchange.events')
+
 const allOrders = state => get(state, 'exchange.allOrders.data', [])
 const cancelledOrders = state => get(state, 'exchange.cancelledOrders.data', [])
 const filledOrders = state => get(state, 'exchange.filledOrders.data', [])
-
-const account = state => get(state, 'provider.account')
 
 const openOrders = state => {
     const all = allOrders(state)
@@ -26,6 +27,22 @@ const openOrders = state => {
 
     return openOrders
 }
+
+///////////////////////////////////////////////////
+// MY OPEN ORDERS
+
+export const myEventsSelector = createSelector(
+    account,
+    events,
+    (account, events) => {
+        events = events.filter((e) => e.args.user === account)
+        console.log(events)
+        return events
+    }
+)
+
+///////////////////////////////////////////////////
+// MY OPEN ORDERS
 
 export const myOpenOrdersSelector = createSelector(
     account,
@@ -119,7 +136,6 @@ export const filledOrdersSelector = createSelector(
 
         // Sort orders by date descending for display
         orders = orders.sort((a, b) => b.timestamp - a.timestamp)
-        console.log(orders)
 
         return orders
     }
@@ -246,7 +262,6 @@ export const orderBookSelector = createSelector(
             sellOrders: sellOrders.sort((a, b) => b.tokenPrice - a.tokenPrice)
         }
 
-        console.log(orders)
         return orders
 })
 

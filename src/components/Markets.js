@@ -13,7 +13,6 @@ const Markets = () => {
     
     const marketHandler = async (event) => {
         await loadTokens(provider, (event.target.value).split(","), dispatch)
-        console.log('market changed')
     }
 
     return(
