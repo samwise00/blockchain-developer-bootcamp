@@ -15,6 +15,18 @@
         "explorerURL": "#"
     },
     "4": {
+        "DApp": {
+            "address": "0xFc5D7B469f0D97864BE5476d4D612Ac00eAc1785"
+        },
+        "mETH": {
+            "address": "0x4317829B0d87e863eCe04f1b712b976469Bacd01"
+        },
+        "mDAI": {
+            "address": "0xDEe1A9DAF5711A179a1c624a4c979E8D7c0d4699"
+        },
+        "exchange": {
+            "address": "0x35208AF80bD142865903e74f8E83E1Ff504AA34C"
+        },
         "explorerURL": "https://rinkeby.etherscan.io/"
     }
 }

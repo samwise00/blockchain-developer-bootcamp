@@ -18,8 +18,8 @@
 .env.test.local
 .env.production.local
 .env
-/artifacts
-/cache
+artifacts
+cache
 
 npm-debug.log*
 yarn-debug.log*
